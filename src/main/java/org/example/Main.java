@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static String encriptar (String frase,String clave){
         //Array non-printable characters
-        String[] nonPrint = {"NULL","STOH","STOT","ENOT","ENQY","ACKN","BELL","BACK","HORT","LIFE","VERT","FORM","CARR","SHIO","SHII","DATA","DEC1","DEC2","DEC3","DEC4","NEGA","SYNI","EOTB","CANC","ENDM","SUBS","ESCA","FILE","GRSE","RESE","UNSE","SPAC"};
+        String[] nonPrint = {"NULL","STOH","STOT","ENTX","ENTR","ENQY","ACKN","BELL","BACK","HORT","LIFE","VERT","FORM","CARR","SHIO","SHII","DATA","DEC1","DEC2","DEC3","DEC4","NEGA","SYNI","EOTB","CANC","ENDM","SUBS","ESCA","FILE","GRSE","RESE","UNSE","SPAC"};
 
         //Declarar variables para encriptar FRASE
         int l=frase.length();
@@ -22,7 +22,7 @@ public class Main {
         int[] arrayClaveInt=new int[l];
         String[] arrayClaveString = new String [l];
         // Cambiar la frase de string a arreglo de caracteres
-        //arrayClaveChar = clave.toCharArray();
+        arrayClaveChar = clave.toCharArray();
 
 
         //  Para frase y clave:
@@ -81,19 +81,22 @@ public class Main {
             arrayXORInt[bloque]=Integer.parseInt(arrayXOR[bloque],2); //pasarlo de binario a decimal
 
 
+
         }
         System.out.println(Arrays.toString(arrayXORInt));
         //arrayXORInt= new int[]{40, 50, 60, 70}; // caso de prueba
         // convertir el resultado XOR  de valor ASCII  a caracteres
         int posicion= 0;
         for(int n:arrayXORInt){
-            if(n<=32){ //check non-printable characters
-                arrayXORString[posicion]=nonPrint[n-1];
+
+             if(n<=32){ //check non-printable characters
+                arrayXORString[posicion]=nonPrint[n];
             }else{
                 arrayXORString[posicion]= String.valueOf((char)n);
 
             }
             posicion++;
+
 
         }
         System.out.println(Arrays.toString(arrayXORString));
