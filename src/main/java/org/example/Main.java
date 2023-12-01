@@ -176,23 +176,20 @@ public class Main {
                 System.out.println(arrayFraseString[i]);
                 arrayFraseInt[contador]=mapita.get(arrayFraseString[i]);
                 System.out.println(arrayFraseInt[contador]);
-                i+=3;
-                contador++;
+                if(i+3<l){
+                    i+=3;
+                }
+
+
 
             }else{
-                arrayFraseInt[i] = arrayFraseChar[i];
+
+                arrayFraseInt[contador] = arrayFraseChar[i];
+                System.out.println(arrayFraseInt[contador]);
             }
+            contador++;
         }
         System.out.println(Arrays.toString(arrayFraseInt));
-
-
-
-
-
-
-
-
-
 
 
 
@@ -202,7 +199,7 @@ public class Main {
         for (int i=0; i<clave.length(); i++){
             //FRASE
 
-            arrayFraseInt[i] = arrayFraseChar[i]; //Obtener valor ASCII
+            //arrayFraseInt[i] = arrayFraseChar[i]; //Obtener valor ASCII
 
             arrayFraseInt[i]= Integer.parseInt(Integer.toBinaryString(arrayFraseInt[i])); //Volver binario
 
@@ -230,7 +227,7 @@ public class Main {
 
 
         // ciclo for que recorre cada digito de frase y clave para compararlos
-        for (int bloque = 0; bloque<l; bloque++){
+        for (int bloque = 0; bloque<clave.length(); bloque++){
             for (int digito=0; digito<7;digito++){
                 //Comparar digitos de frase y clave y hacer XOR
                 if(arrayClaveString[bloque].charAt(digito)==arrayFraseString[bloque].charAt(digito)) { //Si los digitos son iguales, el valor en la tabla XOR es "0"
