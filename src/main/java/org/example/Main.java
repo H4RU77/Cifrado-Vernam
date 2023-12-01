@@ -154,6 +154,7 @@ public class Main {
         char[] arrayFraseChar= new char[l];
         int[] arrayFraseInt=new int[clave.length()];
         String[] arrayFraseString = new String [l];
+        String[] arrayFraseStringCorto = new String [clave.length()];
         // Cambiar la frase de string a arreglo de caracteres
         arrayFraseChar = frase.toCharArray();
 
@@ -161,26 +162,26 @@ public class Main {
 
         //declarar variables para encriptar CLAVE
         char[] arrayClaveChar= new char[l];
-        int[] arrayClaveInt=new int[l];
-        String[] arrayClaveString = new String [l];
+        int[] arrayClaveInt=new int[clave.length()];
+        String[] arrayClaveString = new String [clave.length()];
         // Cambiar la clave de string a arreglo de caracteres
         arrayClaveChar = clave.toCharArray();
 
         int contador=0;
         // Cambiar la frase de arreglo de chars a arreglo de strings y después  a arreglo de ints
-        for(int i=0; i<l;i++){
+        for(int i=0; i<frase.length();i++){
             if(Character.isUpperCase(arrayFraseChar[i])){
                 arrayFraseString[i]=Character.toString(arrayFraseChar[i]);arrayFraseString[i]+=(char)arrayFraseChar[i+1];
                 arrayFraseString[i]+=(char)arrayFraseChar[i+2];arrayFraseString[i]+=(char)arrayFraseChar[i+3];
 
+
                 System.out.println(arrayFraseString[i]);
+
                 arrayFraseInt[contador]=mapita.get(arrayFraseString[i]);
                 System.out.println(arrayFraseInt[contador]);
                 if(i+3<l){
                     i+=3;
                 }
-
-
 
             }else{
 
