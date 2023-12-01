@@ -204,7 +204,7 @@ public class Main {
 
             arrayFraseInt[i]= Integer.parseInt(Integer.toBinaryString(arrayFraseInt[i])); //Volver binario
 
-            arrayFraseString[i]= String.format("%7s", Integer.toString(arrayFraseInt[i])).replace(' ', '0'); //Guardar como array de strings
+            arrayFraseStringCorto[i]= String.format("%7s", Integer.toString(arrayFraseInt[i])).replace(' ', '0'); //Guardar como array de strings
 
 
             //CLAVE
@@ -216,22 +216,22 @@ public class Main {
         }
 
         //Revisar variables en binario
-        System.out.println(Arrays.toString(arrayFraseString));
+        System.out.println(Arrays.toString(arrayFraseStringCorto));
         System.out.println(Arrays.toString(arrayClaveString));
 
 
         //USAR XOR
 
         String[] arrayXOR= new String[l];
-        int[] arrayXORInt = new int[l];
-        String[] arrayXORString = new String[l];
+        int[] arrayXORInt = new int[clave.length()];
+        String[] arrayXORString = new String[clave.length()];
 
 
         // ciclo for que recorre cada digito de frase y clave para compararlos
         for (int bloque = 0; bloque<clave.length(); bloque++){
             for (int digito=0; digito<7;digito++){
                 //Comparar digitos de frase y clave y hacer XOR
-                if(arrayClaveString[bloque].charAt(digito)==arrayFraseString[bloque].charAt(digito)) { //Si los digitos son iguales, el valor en la tabla XOR es "0"
+                if(arrayClaveString[bloque].charAt(digito)==arrayFraseStringCorto[bloque].charAt(digito)) { //Si los digitos son iguales, el valor en la tabla XOR es "0"
                     if(arrayXOR[bloque]==null){
                         arrayXOR[bloque] ="0";
 
