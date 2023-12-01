@@ -16,13 +16,13 @@ public class Main {
 
         //Declarar variables para encriptar FRASE
         int l=frase.length();
-        System.out.println(l);
+        System.out.println("Longitud: "+l);
         char[] arrayFraseChar= new char[l];
         int[] arrayFraseInt=new int[l];
         String[] arrayFraseString = new String [l];
         // Cambiar la frase de string a arreglo de caracteres
         arrayFraseChar = frase.toCharArray();
-        System.out.println(arrayFraseChar);
+
 
 
         //declarar variables para encriptar CLAVE
@@ -31,7 +31,7 @@ public class Main {
         String[] arrayClaveString = new String [l];
         // Cambiar la frase de string a arreglo de caracteres
         arrayClaveChar = clave.toCharArray();
-        System.out.println(arrayClaveChar);
+
 
 
         //  Para frase y clave:
@@ -127,7 +127,7 @@ public class Main {
                 .replace(" ", "")
                 .trim();
 
-
+        System.out.println("Tu palabra encriptada es:");
         return formattedString;
 
 
@@ -148,7 +148,7 @@ public class Main {
 
         //Declarar variables para encriptar FRASE
         int l=frase.length();
-        System.out.println(l);
+        System.out.println("Longitud: "+clave.length());
 
 
         char[] arrayFraseChar= new char[l];
@@ -175,10 +175,8 @@ public class Main {
                 arrayFraseString[i]+=(char)arrayFraseChar[i+2];arrayFraseString[i]+=(char)arrayFraseChar[i+3];
 
 
-                System.out.println(arrayFraseString[i]);
-
                 arrayFraseInt[contador]=mapita.get(arrayFraseString[i]);
-                System.out.println(arrayFraseInt[contador]);
+
                 if(i+3<l){
                     i+=3;
                 }
@@ -186,7 +184,7 @@ public class Main {
             }else{
 
                 arrayFraseInt[contador] = arrayFraseChar[i];
-                System.out.println(arrayFraseInt[contador]);
+
             }
             contador++;
         }
@@ -286,7 +284,7 @@ public class Main {
                 .replace(" ", "")
                 .trim();
 
-
+        System.out.println("Tu palabra desencriptada es:");
         return formattedString;
 
 
@@ -315,7 +313,7 @@ public class Main {
                     frase = scan.nextLine();
                     System.out.println("Escriba la clave que desea utilizar (debe ser de la misma longitud que la frase)");
                     clave = scan.nextLine();
-                    System.out.println("Tu palabra encriptada es:");
+                    System.out.println("Procedimiento:");
                     System.out.println(encriptar(frase,clave));
                     break;
                 case 2:
@@ -324,6 +322,7 @@ public class Main {
                     frase = scan.nextLine();
                     System.out.println("Escriba la clave que desea utilizar (debe ser de la misma longitud que la frase original)");
                     clave = scan.nextLine();
+                    System.out.println("Procedimiento:");
                     System.out.println(desencriptar(frase,clave));
                     break;
 
